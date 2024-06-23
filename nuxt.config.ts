@@ -1,5 +1,3 @@
-import { defineNuxtConfig } from 'nuxt'
-
 export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ['@/assets/css/tailwind.css'],
