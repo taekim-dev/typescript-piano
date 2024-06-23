@@ -5,15 +5,13 @@ Migrate javascript-piano to TypeScript, Nuxt, and Tailwind CSS.
 ## Setup
 
 ```bash
-# npm
 npm install
 
 ```
 
-## Development Server
+## Local
 
 ```bash
-# npm
 npm run dev
 
 ```
@@ -23,15 +21,6 @@ npm run dev
 Build the application for production:
 
 ```bash
-# npm
 npm run build
-
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
 
 ```
