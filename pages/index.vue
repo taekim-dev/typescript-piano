@@ -20,7 +20,7 @@ export default defineComponent({
 
 <style scoped>
 h1 {
-  @apply text-4xl font-bold;
+  @apply text-4xl font-bold mb-5;
 }
 p {
   @apply text-lg;

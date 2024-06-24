@@ -22,7 +22,7 @@ export default defineComponent({
 
 <style scoped>
 header {
-  @apply bg-blue-500 text-white p-4;
+  @apply bg-blue-50 text-blue-700 p-4;
 }
 main {
   @apply p-4;
