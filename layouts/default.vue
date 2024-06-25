@@ -1,9 +1,9 @@
 <template>
   <div>
-    <main>
+    <main class="mt-16 font-sans antialiased text-center text-gray-800">
       <NuxtPage />
     </main>
-    <footer>
+    <footer class="p-4 text-center bg-gray-200">
       <p>&copy; 2024 TypeScript Piano</p>
     </footer>
   </div>
@@ -18,15 +18,4 @@ export default defineComponent({
 </script>
 
 <style scoped>
-main {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-footer {
-  @apply bg-gray-200 text-center p-4;
-}
 </style>
