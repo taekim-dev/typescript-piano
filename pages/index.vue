@@ -1,28 +1,27 @@
 <template>
   <div>
-    <h1>Welcome to TypeScript Piano</h1>
-    <p>{{ message }}</p>
+    <PianoUIComponent />
+    <InputComponent />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent } from 'vue'
+import PianoUIComponent from '~/components/PianoUIComponent.vue'
+import InputComponent from '~/components/InputComponent.vue'
 
 export default defineComponent({
-  setup() {
-    const message = ref('Hello from TypeScript Piano!')
-    return {
-      message,
-    }
+  name: 'IndexPage',
+  components: {
+    PianoUIComponent,
+    InputComponent,
   },
 })
 </script>
 
 <style scoped>
-h1 {
-  @apply text-4xl font-bold mb-5;
-}
-p {
-  @apply text-lg;
+div {
+  text-align: center;
+  margin-top: 60px;
 }
 </style>

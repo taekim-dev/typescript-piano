@@ -19,7 +19,12 @@ export default defineComponent({
 
 <style scoped>
 main {
-  @apply p-4;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
 }
 footer {
   @apply bg-gray-200 text-center p-4;
