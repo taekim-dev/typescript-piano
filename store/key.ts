@@ -1,6 +1,16 @@
 import { defineStore } from 'pinia'
 
-export const useKeyStore = defineStore('key', {
+interface keyEntry {
+  name: string
+  sound: string
+}
+
+interface keyState {
+  keyMap: Record<string, keyEntry>
+}
+
+export const useKeyStore = defineStore<'key', keyState>({
+  id: 'key',
   state: () => ({
     keyMap: {
       A: { name: 'Do', sound: require('@/assets/sounds/do.wav') },
