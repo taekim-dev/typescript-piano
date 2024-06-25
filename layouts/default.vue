@@ -1,8 +1,5 @@
 <template>
   <div>
-    <header>
-      <h1>TypeScript Piano</h1>
-    </header>
     <main>
       <NuxtPage />
     </main>
@@ -21,9 +18,6 @@ export default defineComponent({
 </script>
 
 <style scoped>
-header {
-  @apply bg-blue-50 text-blue-700 p-4;
-}
 main {
   @apply p-4;
 }
