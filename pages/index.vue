@@ -7,6 +7,8 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { useAudioStore } from '~/store/audio'
+import { useKeyStore } from '~/store/key'
 import PianoUIComponent from '~/components/PianoUIComponent.vue'
 import InputComponent from '~/components/InputComponent.vue'
 
@@ -16,6 +18,16 @@ export default defineComponent({
     PianoUIComponent,
     InputComponent,
   },
+  setup() {
+    const audioStore = useAudioStore();
+    const keyStore = useKeyStore();
+
+    console.log(audioStore, keyStore);
+    return {
+      audioStore,
+      keyStore
+    }
+  }
 })
 </script>
 
