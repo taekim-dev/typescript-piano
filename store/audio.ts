@@ -1,15 +1,15 @@
 import { defineStore } from 'pinia'
 
 interface Audio {
-  title: string;
-  input: any;
-  keys: any;
+  title: string
+  input: any
+  keys: any
 }
 
 interface AudioState {
-  savedAudios: Audio[];
-  playingAudios: any[];
-  SAVE_LIMIT: number;
+  savedAudios: Audio[]
+  playingAudios: any[]
+  SAVE_LIMIT: number
 }
 
 export const useAudioStore = defineStore<'audio', AudioState>({
