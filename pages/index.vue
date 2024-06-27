@@ -19,15 +19,15 @@ export default defineComponent({
     InputComponent,
   },
   setup() {
-    const audioStore = useAudioStore();
-    const keyStore = useKeyStore();
+    const audioStore = useAudioStore()
+    const keyStore = useKeyStore()
 
-    console.log(audioStore, keyStore);
+    console.log(audioStore, keyStore)
     return {
       audioStore,
-      keyStore
+      keyStore,
     }
-  }
+  },
 })
 </script>
 

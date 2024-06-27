@@ -1,3 +1,1 @@
-<template>
-    InputComponent
-</template>
+<template>InputComponent</template>
