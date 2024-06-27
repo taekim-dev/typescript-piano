@@ -30,8 +30,6 @@ describe('useSoundPlayer', () => {
     const { playNotes, playingAudios } = useSoundPlayer()
 
     playNotes('ASD', keyMap)
-
-    // Fast-forward all timers
     vi.runAllTimers()
 
     expect(playingAudios.value.length).toBe(3)
@@ -39,4 +37,17 @@ describe('useSoundPlayer', () => {
     expect(playingAudios.value[1].audio.play).toHaveBeenCalledTimes(1)
     expect(playingAudios.value[2].audio.play).toHaveBeenCalledTimes(1)
   })
+
+  it('should handle spaces in the sequence', async () => {
+    const { playNotes, playingAudios } = useSoundPlayer()
+
+    playNotes('AS D', keyMap)
+    vi.runAllTimers()
+
+    expect(playingAudios.value.length).toBe(3)
+    expect(playingAudios.value[0].audio.play).toHaveBeenCalledTimes(1)
+    expect(playingAudios.value[1].audio.play).toHaveBeenCalledTimes(1)
+    expect(playingAudios.value[2].audio.play).toHaveBeenCalledTimes(1)
+  })
+
 })
