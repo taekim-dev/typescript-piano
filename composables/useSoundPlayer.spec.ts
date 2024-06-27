@@ -50,4 +50,18 @@ describe('useSoundPlayer', () => {
     expect(playingAudios.value[2].audio.play).toHaveBeenCalledTimes(1)
   })
 
+  it('should handle invalid notes', async () => {
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {})
+    const { playNotes, playingAudios } = useSoundPlayer()
+
+    playNotes('ASZ', keyMap)
+    vi.runAllTimers()
+
+    expect(playingAudios.value.length).toBe(2)
+    expect(playingAudios.value[0].audio.play).toHaveBeenCalledTimes(1)
+    expect(playingAudios.value[1].audio.play).toHaveBeenCalledTimes(1)
+    expect(warnSpy).toHaveBeenCalledWith('Invalid key: Z')
+
+    warnSpy.mockRestore()
+  })
 })
