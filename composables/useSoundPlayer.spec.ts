@@ -16,7 +16,7 @@ beforeEach(() => {
 })
 
 afterEach(() => {
-    vi.useRealTimers()
+  vi.useRealTimers()
 })
 
 describe('useSoundPlayer', () => {
