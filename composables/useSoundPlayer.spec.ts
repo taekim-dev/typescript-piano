@@ -64,4 +64,31 @@ describe('useSoundPlayer', () => {
 
     warnSpy.mockRestore()
   })
+
+  it('should add delay for spaces in the sequence', async () => {
+    const { playNotes } = useSoundPlayer()
+
+    let currentTime = 0
+    const nowSpy = vi.spyOn(Date, 'now').mockImplementation(() => currentTime)
+
+    playNotes('A S D', keyMap)
+
+    currentTime += 0
+    vi.advanceTimersByTime(0)
+    expect(global.Audio).toHaveBeenCalledTimes(1)
+
+    currentTime += 800 // 500ms for the note + 300ms for the space
+    vi.advanceTimersByTime(800)
+    expect(global.Audio).toHaveBeenCalledTimes(2)
+
+    currentTime += 500
+    vi.advanceTimersByTime(500)
+    expect(global.Audio).toHaveBeenCalledTimes(2)
+
+    currentTime += 300
+    vi.advanceTimersByTime(300)
+    expect(global.Audio).toHaveBeenCalledTimes(3)
+
+    nowSpy.mockRestore()
+  })
 })
