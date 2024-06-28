@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="flex flex-col min-h-screen">
     <PianoUIComponent />
     <InputComponent />
   </div>
@@ -18,10 +18,3 @@ export default defineComponent({
   },
 })
 </script>
-
-<style scoped>
-div {
-  text-align: center;
-  margin-top: 60px;
-}
-</style>
