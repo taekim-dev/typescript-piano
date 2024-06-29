@@ -1,10 +1,11 @@
 <template>
   <div class="piano-ui__component">
-    <div v-for="(note, index) in notes" 
-      :key="index" 
-      @click="playKey(note)"
+    <div
+      v-for="(note, index) in notes"
+      :key="index"
       class="inline-block m-1.5 p-2.5 border border-black cursor-pointer custom-shadow"
-      >
+      @click="playKey(note)"
+    >
       {{ note.name }} ( {{ note.key }} )
     </div>
   </div>
@@ -69,4 +70,3 @@ export default {
   box-shadow: 0 0 0 2px #2c3e50;
 }
 </style>
-

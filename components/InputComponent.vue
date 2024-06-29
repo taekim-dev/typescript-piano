@@ -48,11 +48,16 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { ref, onMounted, computed } from 'vue'
 import { useSoundPlayer } from '~/composables/useSoundPlayer'
 import { useKeyStore } from '~/store/key'
 import { useAudioStore } from '~/store/audio'
+
+interface KeyEntry {
+  name: string
+  sound: string
+}
 
 export default {
   name: 'InputComponent',
@@ -61,11 +66,11 @@ export default {
     const audioStore = useAudioStore()
     const { playNotes } = useSoundPlayer()
 
-    const userInput = ref('')
-    const keyMap = keyStore.keyMap
+    const userInput = ref<string>('')
+    const keyMap = keyStore.keyMap as Record<string, KeyEntry>
 
-    const convertToUpperCase = (event) => {
-      const input = event.target.value.toUpperCase()
+    const convertToUpperCase = (event: Event) => {
+      const input = (event.target as HTMLInputElement).value.toUpperCase()
       const validKeys = Object.keys(keyMap)
       let filteredInput = ''
 
@@ -77,13 +82,13 @@ export default {
       userInput.value = filteredInput
     }
 
-    const playInput = (input) => {
-      playNotes(input, keyMap, audioStore.playingAudios)
+    const playInput = (input: string) => {
+      playNotes(input, keyMap)
     }
 
-    const playSavedSound = (index) => {
+    const playSavedSound = (index: number) => {
       const savedAudioInput = audioStore.savedAudios[index]
-      playNotes(savedAudioInput.input, keyMap, audioStore.playingAudios)
+      playNotes(savedAudioInput.input, keyMap)
     }
 
     const saveSounds = () => {
@@ -96,7 +101,7 @@ export default {
       }
     }
 
-    const extractKeys = (input, keyMap) => {
+    const extractKeys = (input: string, keyMap: Record<string, KeyEntry>) => {
       if (!input || typeof input !== 'string') {
         throw new Error('Invalid input')
       }
