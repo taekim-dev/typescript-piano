@@ -40,7 +40,7 @@ import { ref, onMounted, computed } from 'vue'
 import { useSoundPlayer } from '~/composables/useSoundPlayer'
 import { useKeyStore } from '~/store/key'
 import { useAudioStore } from '~/store/audio'
-import { KeyEntry } from '~/types/keyEntry'
+import { keyEntry } from '~/types/key'
 
 export default {
   name: 'InputComponent',
@@ -50,7 +50,7 @@ export default {
     const { playNotes } = useSoundPlayer()
 
     const userInput = ref<string>('')
-    const keyMap = keyStore.keyMap as Record<string, KeyEntry>
+    const keyMap = keyStore.keyMap as Record<string, keyEntry>
 
     const convertToUpperCase = (event: Event) => {
       const input = (event.target as HTMLInputElement).value.toUpperCase()
@@ -84,7 +84,7 @@ export default {
       }
     }
 
-    const extractKeys = (input: string, keyMap: Record<string, KeyEntry>) => {
+    const extractKeys = (input: string, keyMap: Record<string, keyEntry>) => {
       if (!input || typeof input !== 'string') {
         throw new Error('Invalid input')
       }
