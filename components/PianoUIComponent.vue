@@ -3,7 +3,7 @@
     <div
       v-for="(note, index) in notes"
       :key="index"
-      class="inline-block m-1.5 p-2.5 border border-black cursor-pointer custom-shadow"
+      class="inline-block m-1.5 p-2.5 border border-black cursor-pointer hover:shadow-custom"
       @click="playKey(note)"
     >
       {{ note.name }} ( {{ note.key }} )
@@ -66,7 +66,4 @@ export default {
 }
 </script>
 <style scoped>
-.piano-ui__component div.custom-shadow:hover {
-  box-shadow: 0 0 0 2px #2c3e50;
-}
 </style>

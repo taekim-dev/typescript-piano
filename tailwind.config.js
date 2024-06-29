@@ -11,8 +11,16 @@ export default {
     extend: {
       colors: {
         'custom-gray': '#2c3e50',
+      },
+      boxShadow: {
+        'custom': '0 0 0 2px #2c3e50',
       }
     },
+  },
+  varients: {
+    extend: {
+      boxShadow: ['hover'],
+    }
   },
   plugins: [],
 }
