@@ -8,7 +8,11 @@ export default {
     './nuxt.config.{js,ts}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'custom-gray': '#2c3e50',
+      }
+    },
   },
   plugins: [],
 }

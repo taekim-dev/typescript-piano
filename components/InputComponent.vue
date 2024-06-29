@@ -1,21 +1,22 @@
 <template>
-  <div class="input-component">
+  <!-- py-2.5 px-5 text-lg text-white bg-custom-gray border-none rounded-md cursor-pointer mt-1.5 -->
+  <div class="flex flex-col items-center m-5">
     <input
       v-model="userInput"
       type="text"
-      class="input-component__input"
+      class="mb-2.5 p-1.5 w-72 text-lg border-2 border-custom-gray rounded-md uppercase"
       placeholder="Enter keys (e.g., ASD)"
       @input="convertToUpperCase"
     />
-    <div class="input-component__controls">
+    <div class="flex flex-row gap-2.5">
       <button
-        class="input-component__button input-component__button--play"
+        class="py-2.5 px-5 text-lg text-white bg-custom-gray border-none rounded-md cursor-pointer mt-1.5"
         @click="playInput(userInput)"
       >
         Play
       </button>
       <button
-        class="input-component__button input-component__button--save"
+        class="py-2.5 px-5 text-lg text-white bg-custom-gray border-none rounded-md cursor-pointer mt-1.5"
         @click="saveSounds"
       >
         Save
