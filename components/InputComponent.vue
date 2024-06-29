@@ -1,5 +1,4 @@
 <template>
-  <!-- py-2.5 px-5 text-lg text-white bg-custom-gray border-none rounded-md cursor-pointer mt-1.5 -->
   <div class="flex flex-col items-center m-5">
     <input
       v-model="userInput"
@@ -9,18 +8,8 @@
       @input="convertToUpperCase"
     />
     <div class="flex flex-row gap-2.5">
-      <button
-        class="py-2.5 px-5 text-lg text-white bg-custom-gray border-none rounded-md cursor-pointer mt-1.5"
-        @click="playInput(userInput)"
-      >
-        Play
-      </button>
-      <button
-        class="py-2.5 px-5 text-lg text-white bg-custom-gray border-none rounded-md cursor-pointer mt-1.5"
-        @click="saveSounds"
-      >
-        Save
-      </button>
+      <button :class="buttonClasses" @click="playInput(userInput)">Play</button>
+      <button :class="buttonClasses" @click="saveSounds">Save</button>
     </div>
   </div>
   <div class="flex flex-col items-center m-5 text-xl">
@@ -39,10 +28,7 @@
       </button>
     </div>
     <div v-if="hasSavedAudios">
-      <button
-        class="save-component__button save-component__button--clear"
-        @click="audioStore.clearAudios"
-      >
+      <button :class="buttonClasses" @click="audioStore.clearAudios">
         Clear
       </button>
     </div>
@@ -118,6 +104,9 @@ export default {
       audioStore.loadSavedAudios()
     })
 
+    const buttonClasses =
+      'py-2.5 px-5 text-lg text-white bg-custom-gray border-none rounded-md cursor-pointer mt-1.5'
+
     return {
       userInput,
       convertToUpperCase,
@@ -126,6 +115,7 @@ export default {
       saveSounds,
       audioStore,
       hasSavedAudios,
+      buttonClasses,
     }
   },
 }
