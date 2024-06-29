@@ -91,7 +91,6 @@ export default {
       return input
         .split('')
         .map((char) => (keyMap[char] ? keyMap[char].name : ''))
-        .join(' ')
     }
 
     const hasSavedAudios = computed(() => audioStore.savedAudios.length > 0)

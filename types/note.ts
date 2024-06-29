@@ -1,6 +1,5 @@
 export interface Note {
-    key: string
-    name: string
-    sound: string
-  }
-  
+  key: string
+  name: string
+  sound: string
+}
