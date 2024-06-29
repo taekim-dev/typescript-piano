@@ -40,7 +40,7 @@ import { ref, onMounted, computed } from 'vue'
 import { useSoundPlayer } from '~/composables/useSoundPlayer'
 import { useKeyStore } from '~/store/key'
 import { useAudioStore } from '~/store/audio'
-import { KeyEntry } from '~/types'
+import { KeyEntry } from '~/types/keyEntry'
 
 export default {
   name: 'InputComponent',

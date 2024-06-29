@@ -14,7 +14,7 @@
 <script lang="ts">
 import { computed, onMounted, onUnmounted } from 'vue'
 import { useKeyStore } from '~/store/key'
-import { Note } from '~/types'
+import { Note } from '~/types/note'
 
 export default {
   name: 'PianoUIComponent',

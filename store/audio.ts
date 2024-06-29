@@ -1,23 +1,12 @@
 import { defineStore } from 'pinia'
-
-interface Audio {
-  title: string
-  input: any
-  keys: any
-}
-
-interface AudioState {
-  savedAudios: Audio[]
-  playingAudios: any[]
-  SAVE_LIMIT: number
-}
+import { AudioState } from '~/types/audio'
 
 export const useAudioStore = defineStore<
   'audio',
   AudioState,
   {},
   {
-    saveAudio(title: string, input: any, keys: any): void
+    saveAudio(title: string, input: string, keys: string[]): void
     clearAudios(): void
     loadSavedAudios(): void
   }
@@ -30,7 +19,7 @@ export const useAudioStore = defineStore<
   }),
 
   actions: {
-    saveAudio(title: string, input: any, keys: any): void {
+    saveAudio(title: string, input: string, keys: string[]): void {
       if (this.savedAudios.length >= this.SAVE_LIMIT) {
         this.savedAudios.shift()
       }
