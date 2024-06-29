@@ -14,19 +14,15 @@
 <script lang="ts">
 import { computed, onMounted, onUnmounted } from 'vue'
 import { useKeyStore } from '~/store/key'
-
-interface Note {
-  key: string
-  name: string
-  sound: string
-}
+import { Note } from '~/types'
 
 export default {
   name: 'PianoUIComponent',
   setup() {
     const keyStore = useKeyStore()
+    const keyMap = keyStore.keyMap
     const notes = computed<Note[]>(() => {
-      return Object.entries(keyStore.keyMap).map(([key, value]) => ({
+      return Object.entries(keyMap).map(([key, value]) => ({
         key,
         name: value.name,
         sound: value.sound,
@@ -40,11 +36,11 @@ export default {
 
     const handleKeyPress = (event: KeyboardEvent) => {
       const key = event.key.toUpperCase()
-      if (keyStore.keyMap[key]) {
+      if (keyMap[key]) {
         playKey({
           key,
-          name: keyStore.keyMap[key].name,
-          sound: keyStore.keyMap[key].sound,
+          name: keyMap[key].name,
+          sound: keyMap[key].sound,
         })
       }
     }
