@@ -23,16 +23,16 @@
       </button>
     </div>
   </div>
-  <div class="save-component">
+  <div class="flex flex-col items-center m-5 text-xl">
     <div
       v-for="(item, index) in audioStore.savedAudios"
       :key="index"
-      class="save-component__item"
+      class="flex items-center mb-2.5"
     >
-      <div class="save-component__title">{{ item.title }}</div>
-      <div class="save-component__audio">{{ item.keys }}</div>
+      <div class="font-bold mr-2.5">{{ item.title }}</div>
+      <div class="font-mono mr-2.5">{{ item.keys }}</div>
       <button
-        class="save-component__button save-component__button--play"
+        class="text-xl border-none cursor-pointer bg-none"
         @click="playSavedSound(index)"
       >
         ▶️
