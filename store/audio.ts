@@ -12,7 +12,16 @@ interface AudioState {
   SAVE_LIMIT: number
 }
 
-export const useAudioStore = defineStore<'audio', AudioState>({
+export const useAudioStore = defineStore<
+  'audio',
+  AudioState,
+  {},
+  {
+    saveAudio(title: string, input: any, keys: any): void
+    clearAudios(): void
+    loadSavedAudios(): void
+  }
+>({
   id: 'audio',
   state: (): AudioState => ({
     savedAudios: [],
